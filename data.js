@@ -17,7 +17,7 @@ export const PERSONAL_INFO = {
     },
     {
       "label": "Current",
-      "value": "Infosys · 1.2 years"
+      "value": "Indo-Sakura Software Japan"
     },
     {
       "label": "Base",
@@ -314,9 +314,9 @@ export const GRAPHIC_DESIGN_ARTWORK = [
 
 export const EXPERIENCE_EDUCATION = [
   {
-    "period": "September 2025 – Present · 1.2 years",
+    "period": "September 2025 – Present",
     "role": "UI/UX & Graphic Designer",
-    "company": "Infosys",
+    "company": "Indo-Sakura Software Japan",
     "location": "Bengaluru, India",
     "type": "Work Experience",
     "points": [
