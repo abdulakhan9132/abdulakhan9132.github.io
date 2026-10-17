@@ -1,0 +1,11 @@
+GSAP 3.13.0 and ScrollTrigger 3.13.0
+Copyright (c) GreenSock. All rights reserved.
+Distribution and use are governed by the GSAP standard license:
+https://gsap.com/standard-license/
+Original copyright and license links are retained in the bundled source headers.
+
+Lenis 1.3.11
+MIT license. See LICENSE-Lenis.txt.
+
+Outfit and Geist Mono
+SIL Open Font License. See ../fonts/OFL-Outfit.txt and ../fonts/OFL-Geist-Mono.txt.
