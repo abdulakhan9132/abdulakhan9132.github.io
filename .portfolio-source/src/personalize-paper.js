@@ -1,18 +1,25 @@
-export function personalizePaper(source, profile) {
+export function personalizePaper(source) {
+  const start=source.indexOf("  ctx.font='500 106px");
+  const end=source.indexOf('  ctx.save(); ctx.translate(1200-M-24',start);
+  if(start<0||end<0)throw new Error('Paper source changed: profile typography');
+  source=source.slice(0,start)+`  ctx.font='600 100px "Inter Tight", Inter, sans-serif';
+  ctx.fillStyle='#ffffff';
+  ctx.fillText('Abdullah Khan', M, 392);
+  ctx.font='500 54px "Inter Tight", Inter, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,.82)';
+  ctx.fillText('UI/UX & Product Designer', M, 510);
+  ctx.fillText('Graphic Designer', M, 582);
+  ctx.font='400 36px Inter, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,.65)';
+  ctx.fillText('Designing clear experiences', M, 710);
+  ctx.fillText('with purpose and character.', M, 760);
+
+`+source.slice(end);
   const replacements = new Map([
-    ['<h1>NOCTURNE</h1>', '<h1>ABDULLA</h1>'],
+    ['<h1>NOCTURNE</h1>', '<h1>ABDULLAH</h1>'],
     ["'o.', M, 190", "'a.', M, 190"],
-    ['Studio of the Week.', 'Junior UI/UX'],
-    ['Feb 14, 2026', 'Designer & maker.'],
-    ['Nocturne Studio.', profile.name],
-    ['By Nocturne Studio', profile.location],
-    ['Ilya Marchetti', 'UI/UX & Product Design'],
-    ['Dara Okonkwo', 'Graphic Design'],
-    ['2026 Official Certificate.', 'A little about my practice.'],
-    ['The orbit jury is proud to declare this website Studio of the Week in recognition of the great talent and effort invested in its creation.', 'I explore clear interfaces, thoughtful digital products, and expressive graphics. Based in Bengaluru, I work with Figma, Photoshop, and Illustrator.'],
-    ["[0,1,2].forEach(i=> signature(ctx, px+6+i*100, endY+24, 0.86, i*5+3, 'rgba(255,255,255,.62)'));", "ctx.fillText('Design with character.', px, endY+42);"],
     ["'SOTW'", "'DESIGN'"],
-    ["'orbit.'", "'abdulla.'"],
+    ["'orbit.'", "'abdullah.'"],
     ["' winners'", "' design'"],
     ['touch-action:none;overscroll-behavior:none', 'touch-action:pan-y;overscroll-behavior:auto'],
   ]);

@@ -3,16 +3,16 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {personalizePaper} from './src/personalize-paper.js';
-import {PERSONAL_INFO} from './data.js';
 
 const assets=JSON.parse(readFileSync(new URL('./src/portfolio-assets.json',import.meta.url)));
 test('paper uses the designer profile and relays vertical scrolling without award claims',()=>{
   const source=readFileSync(new URL('./src/shaders/3d-paper/sources/3d-paper.html',import.meta.url),'utf8');
-  const result=personalizePaper(source,PERSONAL_INFO);
-  for(const text of [PERSONAL_INFO.name,'Junior UI/UX','Bengaluru','portfolio-paper-scroll','touch-action:pan-y'])assert.ok(result.includes(text),text);
-  for(const text of ['NOCTURNE','Nocturne','Studio of the Week','Official Certificate','Ilya Marchetti','Dara Okonkwo'])assert.ok(!result.includes(text),text);
+  const result=personalizePaper(source);
+  for(const text of ['Abdullah Khan','UI/UX & Product Designer','Graphic Designer','Designing clear experiences','with purpose and character.','portfolio-paper-scroll','touch-action:pan-y'])assert.ok(result.includes(text),text);
+  for(const text of ['Junior','maker','Bengaluru','Bangalore','India','NOCTURNE','Nocturne','Studio of the Week','Official Certificate','Ilya Marchetti','Dara Okonkwo'])assert.ok(!result.includes(text),text);
+  assert.ok(result.indexOf("fillText('Abdullah Khan'")<result.indexOf("fillText('UI/UX & Product Designer'"));
   assert.ok(result.includes('passive:false'));
-  assert.throws(()=>personalizePaper('',PERSONAL_INFO),/Paper source changed/);
+  assert.throws(()=>personalizePaper(''),/Paper source changed/);
 });
 test('portfolio contains the four supplied UI project collections and their screens',()=>{
   assert.deepEqual(assets.projects.map(item=>item.id),['arven','nova-deals','gitfit','enterprise-dashboard']);

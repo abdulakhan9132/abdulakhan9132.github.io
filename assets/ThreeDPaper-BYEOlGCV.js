@@ -1,4 +1,4 @@
-import{n as e,r as t,t as n}from"./index-DOC5I1Rz.js";var r=t(e(),1),i=`<meta charset="utf-8">
+import{n as e,r as t,t as n}from"./index-FsLx4IM8.js";var r=t(e(),1),i=`<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>3D Paper</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0d'/%3E%3Ccircle cx='13' cy='19' r='6' fill='%23fff'/%3E%3Ccircle cx='25' cy='23' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -47,7 +47,7 @@ body{
 
 </style>
 
-<div id="bg"><h1>ABDULLA</h1></div>
+<div id="bg"><h1>ABDULLAH</h1></div>
 
 <div id="dof"></div>
 <canvas id="gl"></canvas>
@@ -130,23 +130,17 @@ function drawGlass(ctx){
   ctx.fillStyle='#ffffff'; ctx.font='700 104px "Inter Tight", Inter, sans-serif';
   ctx.fillText('a.', M, 190);
 
-  ctx.font='500 106px "Inter Tight", Inter, sans-serif';
-  ctx.fillStyle='rgba(255,255,255,.52)';
-  ctx.fillText('Junior UI/UX', M, 392);
-  ctx.fillText('Designer & maker.',        M, 518);
-  ctx.font='600 110px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
-  ctx.fillText('Abdulla Khan', M, 664);
-
-  ctx.font='600 34px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.90)';
-  ['Bengaluru, India','UI/UX & Product Design','Graphic Design'].forEach((s,i)=>
-    ctx.fillText(s, M+4, 752+i*45));
-
-  const px=592, py=1158;
-  ctx.font='700 24px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.92)';
-  ctx.fillText('A little about my practice.', px, py);
-  ctx.font='500 22px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.68)';
-  const endY = wrapL(ctx,'I explore clear interfaces, thoughtful digital products, and expressive graphics. Based in Bengaluru, I work with Figma, Photoshop, and Illustrator.',px,py+36,296,28);
-  ctx.fillText('Design with character.', px, endY+42);
+  ctx.font='600 100px "Inter Tight", Inter, sans-serif';
+  ctx.fillStyle='#ffffff';
+  ctx.fillText('Abdullah Khan', M, 392);
+  ctx.font='500 54px "Inter Tight", Inter, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,.82)';
+  ctx.fillText('UI/UX & Product Designer', M, 510);
+  ctx.fillText('Graphic Designer', M, 582);
+  ctx.font='400 36px Inter, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,.65)';
+  ctx.fillText('Designing clear experiences', M, 710);
+  ctx.fillText('with purpose and character.', M, 760);
 
   ctx.save(); ctx.translate(1200-M-24, 1236); ctx.rotate(Math.PI/2);
   ctx.font='500 23px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.62)';
@@ -154,8 +148,8 @@ function drawGlass(ctx){
   ctx.restore();
 
   ctx.font='700 34px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
-  ctx.fillText('abdulla.', M, 1516);
-  const w = ctx.measureText('abdulla.').width;
+  ctx.fillText('abdullah.', M, 1516);
+  const w = ctx.measureText('abdullah.').width;
   ctx.font='500 34px "Inter Tight", Inter, sans-serif';
   ctx.fillStyle='rgba(255,255,255,.62)'; ctx.fillText(' design', M+w, 1516);
 }
