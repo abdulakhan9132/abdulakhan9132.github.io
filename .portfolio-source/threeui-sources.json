@@ -1,0 +1,78 @@
+{
+  "package": "@designcodeio/threeui@1.2.0",
+  "sourceBundles": [
+    "https://threeui.com/source-code/sylva-hero.json",
+    "https://threeui.com/source-code/3d-paper.json",
+    "https://threeui.com/source-code/glass-ai-button.json"
+  ],
+  "files": {
+    "src/shaders/landing-pages/LandingPages.tsx": {
+      "sha256": "4d379461ad00eb4de7900df312878035383de7e1ed4e13283b8143a2eea9d30a",
+      "bytes": 40525
+    },
+    "src/shaders/landing-pages/pageTypography.ts": {
+      "sha256": "809cc65797d531cd3b3ca5a56815d55d24b3ee8d293e4e4bad6fdfe6c83244cc",
+      "bytes": 15028
+    },
+    "src/shaders/landing-pages/pageRecipes.ts": {
+      "sha256": "c9d9849cc255bac2d1d938d088c50917f84916f1c516d2bbb27fcfd803523233",
+      "bytes": 74927
+    },
+    "src/shaders/landing-pages/LandingPageFrame.tsx": {
+      "sha256": "61de2cc50888aac4ac5557420b07fa47ed3543bb57c1e0055fafdefa53dbaa78",
+      "bytes": 6756
+    },
+    "public/landing-pages/inner-green-3d.html": {
+      "sha256": "69c3694bd63f44ef9f007ebe4dac57a83e4402e0cdf6b54dd10b96dd4f05e197",
+      "bytes": 197914
+    },
+    "public/landing-pages/inner-green-assets/three.min.js": {
+      "sha256": "8a5f7249903b54d30f79f708699d2fed2d6a1d0741a4cd41377d1f01bb5a2271",
+      "bytes": 608081
+    },
+    "src/shaders/threeui.css": {
+      "sha256": "efe4447139f1358dd8e9be68edf6fa46cbefbd1de423a4d6c439ca61d2c8eccf",
+      "bytes": 40715
+    },
+    "public/landing-pages/inner-green-assets/card-ecostove.jpg": {
+      "sha256": "70ce084084902bc502f00c366405b661ecdff90dee95d363b36a6e146829e433",
+      "bytes": 290988
+    },
+    "public/landing-pages/inner-green-assets/card-ethos.jpg": {
+      "sha256": "337627390f499b3ae272cec9e2f83c817694a82f42e1aa10a7b26a2c7d679dff",
+      "bytes": 316720
+    },
+    "public/landing-pages/inner-green-assets/lexend-latin.woff2": {
+      "sha256": "1ec8f6ee2750554b4bc59ff0b507d316a82a7ba37e0e5bebc41d3bd9b9faad46",
+      "bytes": 39692
+    },
+    "src/shaders/3d-paper/sources/3d-paper.html": {
+      "sha256": "8ec1b71c0dbcafbadf908100ae2a08045d0a1087c00a09d28245ef19366c7353",
+      "bytes": 630847
+    },
+    "src/shaders/3d-paper/sources/3d-paper-site-of-the-year.html": {
+      "sha256": "fdef93fa96a3927430ef35411af70568c56b9488921aead8f36be36800689b7d",
+      "bytes": 633404
+    },
+    "src/shaders/3d-paper/sources/3d-paper-japanese.html": {
+      "sha256": "4e929b9c3feaa635c6bc45e5c556243395318d4d7feb4d6a85190768b3b9f738",
+      "bytes": 633704
+    },
+    "src/shaders/3d-paper/sources/3d-paper-certificate.html": {
+      "sha256": "0cb83da723e1a54f1a2e1124bc26a27d608afc3ba42ec0b116807e2e2ae5fb32",
+      "bytes": 634005
+    },
+    "src/shaders/3d-paper/ThreeDPaper.tsx": {
+      "sha256": "c2c8d1e9a0baf69c9e477e270ccde0254d6270918c106b62dffb5c7931223b20",
+      "bytes": 3185
+    },
+    "src/shaders/glass-ai-button/GlassAiButton.tsx": {
+      "sha256": "1a11cd583e856d3be328a0192be4d77184607c64721f3fb646bd6d61436b2104",
+      "bytes": 2455
+    },
+    "src/shaders/glass-ai-button/sources/glass-ai-button.html": {
+      "sha256": "a484571de316c05ab7fbd2da82da5e028ee1ffe0bd169449fb8a3c7801abd81e",
+      "bytes": 739766
+    }
+  }
+}

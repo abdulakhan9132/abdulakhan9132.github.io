@@ -1,0 +1,22 @@
+{
+  "name": "abdulla-khan-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of Abdulla Khan - UI/UX Designer, Product Designer & Graphic Designer",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/verify-threeui.mjs && vite build",
+    "preview": "vite preview",
+    "test": "node --test portfolio.test.js",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@designcodeio/threeui": "1.2.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.1.2",
+    "vite": "8.3.5"
+  }
+}

@@ -1,0 +1,435 @@
+{
+  "projects": [
+    {
+      "id": "arven",
+      "title": "ARVEN",
+      "tagline": "A quieter way to live beautifully.",
+      "kind": "Residential website",
+      "category": "Product & UI/UX",
+      "tags": [
+        "Web design",
+        "Art direction",
+        "Responsive UI"
+      ],
+      "summary": "A considered residential experience shaped by warm materials, architectural photography, and a calm path from discovery to enquiry.",
+      "preview": {
+        "image": "/portfolio/arven-preview.webp",
+        "width": 1440,
+        "height": 1065
+      },
+      "image": "/portfolio/arven-preview.webp",
+      "screens": [
+        {
+          "image": "/portfolio/arven-1.webp",
+          "width": 1440,
+          "height": 6413
+        }
+      ]
+    },
+    {
+      "id": "nova-deals",
+      "title": "NovaDeals",
+      "tagline": "Good style. Less friction.",
+      "kind": "Commerce experience",
+      "category": "Product & UI/UX",
+      "tags": [
+        "E-commerce",
+        "Design system",
+        "UI/UX"
+      ],
+      "summary": "A fashion commerce concept connecting product discovery, clear product details, and a cohesive visual system across desktop and mobile.",
+      "preview": {
+        "image": "/portfolio/nova-deals-preview.webp",
+        "width": 1800,
+        "height": 1332
+      },
+      "image": "/portfolio/nova-deals-preview.webp",
+      "screens": [
+        {
+          "image": "/portfolio/nova-deals-1.webp",
+          "width": 1800,
+          "height": 5149
+        }
+      ]
+    },
+    {
+      "id": "gitfit",
+      "title": "GITFIT",
+      "tagline": "A little stronger. Every day.",
+      "kind": "Fitness product",
+      "category": "Product & UI/UX",
+      "tags": [
+        "Mobile design",
+        "Visual identity",
+        "Interaction"
+      ],
+      "summary": "A fitness experience exploring confident visual identity, workout discovery, and clear mobile interfaces for an active everyday routine.",
+      "preview": {
+        "image": "/portfolio/gitfit-preview.webp",
+        "width": 1440,
+        "height": 1024
+      },
+      "image": "/portfolio/gitfit-preview.webp",
+      "screens": [
+        {
+          "image": "/portfolio/gitfit-1.webp",
+          "width": 1440,
+          "height": 1024
+        },
+        {
+          "image": "/portfolio/gitfit-2.webp",
+          "width": 1440,
+          "height": 7123
+        },
+        {
+          "image": "/portfolio/gitfit-3.webp",
+          "width": 1440,
+          "height": 6945
+        },
+        {
+          "image": "/portfolio/gitfit-4.webp",
+          "width": 402,
+          "height": 874
+        },
+        {
+          "image": "/portfolio/gitfit-5.webp",
+          "width": 402,
+          "height": 874
+        },
+        {
+          "image": "/portfolio/gitfit-6.webp",
+          "width": 402,
+          "height": 874
+        }
+      ]
+    },
+    {
+      "id": "enterprise-dashboard",
+      "title": "Clarity in complexity",
+      "tagline": "The right information. At the right moment.",
+      "kind": "Enterprise dashboards",
+      "category": "Product & UI/UX",
+      "tags": [
+        "Dashboard UX",
+        "Data visualization",
+        "Enterprise UI"
+      ],
+      "summary": "A family of executive, supplier, and engineering interfaces focused on hierarchy, legibility, and making complex information easier to navigate.",
+      "preview": {
+        "image": "/portfolio/enterprise-dashboard-preview.webp",
+        "width": 1800,
+        "height": 1332
+      },
+      "image": "/portfolio/enterprise-dashboard-preview.webp",
+      "screens": [
+        {
+          "image": "/portfolio/enterprise-dashboard-1.webp",
+          "width": 1800,
+          "height": 2326
+        },
+        {
+          "image": "/portfolio/enterprise-dashboard-2.webp",
+          "width": 1800,
+          "height": 2326
+        },
+        {
+          "image": "/portfolio/enterprise-dashboard-3.webp",
+          "width": 1800,
+          "height": 2130
+        },
+        {
+          "image": "/portfolio/enterprise-dashboard-4.webp",
+          "width": 1800,
+          "height": 2115
+        },
+        {
+          "image": "/portfolio/enterprise-dashboard-5.webp",
+          "width": 1800,
+          "height": 1955
+        },
+        {
+          "image": "/portfolio/enterprise-dashboard-6.webp",
+          "width": 1800,
+          "height": 1430
+        }
+      ]
+    }
+  ],
+  "artwork": [
+    {
+      "id": "poster-1",
+      "title": "Brutalism",
+      "style": "Brutalism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Brutalism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-1.webp",
+      "width": 1240,
+      "height": 1674
+    },
+    {
+      "id": "poster-2",
+      "title": "Unseen",
+      "style": "Experimental",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Experimental — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-2.webp",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "id": "poster-3",
+      "title": "For You, I’d Risk It All",
+      "style": "Surrealism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Surrealism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-3.webp",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "id": "poster-4",
+      "title": "A quieter path",
+      "style": "Surrealism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Surrealism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-4.webp",
+      "width": 1240,
+      "height": 1674
+    },
+    {
+      "id": "poster-5",
+      "title": "Love, in the spotlight",
+      "style": "Minimalism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Minimalism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-5.webp",
+      "width": 1240,
+      "height": 1674
+    },
+    {
+      "id": "poster-6",
+      "title": "Fall in Love",
+      "style": "Editorial",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Editorial — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-6.webp",
+      "width": 1240,
+      "height": 1674
+    },
+    {
+      "id": "poster-7",
+      "title": "Hope",
+      "style": "Minimalism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Minimalism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-7.webp",
+      "width": 736,
+      "height": 1031
+    },
+    {
+      "id": "poster-8",
+      "title": "June",
+      "style": "Editorial",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Editorial — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-8.webp",
+      "width": 736,
+      "height": 920
+    },
+    {
+      "id": "poster-9",
+      "title": "Direction over speed",
+      "style": "Minimalism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Minimalism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-9.webp",
+      "width": 736,
+      "height": 920
+    },
+    {
+      "id": "poster-10",
+      "title": "Not Just Chrome",
+      "style": "Neo-futurism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Neo-futurism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-10.webp",
+      "width": 736,
+      "height": 1041
+    },
+    {
+      "id": "poster-11",
+      "title": "Perspective",
+      "style": "Experimental",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Experimental — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-11.webp",
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "poster-12",
+      "title": "A Simple Favor",
+      "style": "Editorial",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Editorial — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-12.webp",
+      "width": 1200,
+      "height": 1850
+    },
+    {
+      "id": "poster-13",
+      "title": "Tokyo",
+      "style": "Editorial",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Editorial — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-13.webp",
+      "width": 735,
+      "height": 919
+    },
+    {
+      "id": "poster-14",
+      "title": "Look",
+      "style": "Surrealism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Surrealism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-14.webp",
+      "width": 736,
+      "height": 954
+    },
+    {
+      "id": "poster-15",
+      "title": "Boring",
+      "style": "Brutalism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Brutalism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-15.webp",
+      "width": 736,
+      "height": 1104
+    },
+    {
+      "id": "poster-16",
+      "title": "The Red Ones",
+      "style": "Surrealism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Surrealism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-16.webp",
+      "width": 736,
+      "height": 920
+    },
+    {
+      "id": "poster-17",
+      "title": "Brutal Type",
+      "style": "Brutalism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Brutalism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-17.webp",
+      "width": 735,
+      "height": 1041
+    },
+    {
+      "id": "poster-18",
+      "title": "Welcome to the 2000s",
+      "style": "Neo-futurism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Neo-futurism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-18.webp",
+      "width": 735,
+      "height": 984
+    },
+    {
+      "id": "poster-19",
+      "title": "Use Your Imagination",
+      "style": "Surrealism",
+      "collection": "Posters",
+      "medium": "Poster & graphic exploration",
+      "description": "Surrealism — typographic and visual exploration from the supplied poster collection.",
+      "image": "/portfolio/poster-19.webp",
+      "width": 736,
+      "height": 1104
+    },
+    {
+      "id": "abstract-1",
+      "title": "Electric blue",
+      "style": "Neo-futurism",
+      "collection": "Abstract",
+      "medium": "Abstract surface & background",
+      "description": "A study of liquid form, reflective surfaces, color, and light.",
+      "image": "/portfolio/abstract-1.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "abstract-2",
+      "title": "Amber flow",
+      "style": "Neo-futurism",
+      "collection": "Abstract",
+      "medium": "Abstract surface & background",
+      "description": "A study of liquid form, reflective surfaces, color, and light.",
+      "image": "/portfolio/abstract-2.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "abstract-3",
+      "title": "Emerald matter",
+      "style": "Neo-futurism",
+      "collection": "Abstract",
+      "medium": "Abstract surface & background",
+      "description": "A study of liquid form, reflective surfaces, color, and light.",
+      "image": "/portfolio/abstract-3.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "abstract-4",
+      "title": "Liquid lime",
+      "style": "Neo-futurism",
+      "collection": "Abstract",
+      "medium": "Abstract surface & background",
+      "description": "A study of liquid form, reflective surfaces, color, and light.",
+      "image": "/portfolio/abstract-4.webp",
+      "width": 1800,
+      "height": 1013
+    },
+    {
+      "id": "abstract-5",
+      "title": "After light",
+      "style": "Neo-futurism",
+      "collection": "Abstract",
+      "medium": "Abstract surface & background",
+      "description": "A study of liquid form, reflective surfaces, color, and light.",
+      "image": "/portfolio/abstract-5.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "abstract-6",
+      "title": "Magenta current",
+      "style": "Neo-futurism",
+      "collection": "Abstract",
+      "medium": "Abstract surface & background",
+      "description": "A study of liquid form, reflective surfaces, color, and light.",
+      "image": "/portfolio/abstract-6.webp",
+      "width": 1800,
+      "height": 2400
+    }
+  ]
+}
