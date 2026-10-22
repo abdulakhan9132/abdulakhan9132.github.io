@@ -1,6 +1,6 @@
 import React, {Suspense, useCallback, useEffect, useRef, useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {SylvaHero, ThreeDPaper, GlassAiButton} from '@designcodeio/threeui';
+import {SylvaHero, ThreeDPaper} from '@designcodeio/threeui';
 import '@designcodeio/threeui/style.css';
 import {PERSONAL_INFO, EXPERIENCE_EDUCATION, SKILLS} from '../data.js';
 import assets from './portfolio-assets.json';
@@ -17,7 +17,7 @@ function App(){
   const [scrolled,setScrolled]=useState(false);
   const [searchOpen,setSearchOpen]=useState(false);
   const [query,setQuery]=useState('');
-  const heroRef=useRef(null),dialogRef=useRef(null),searchRef=useRef(null);
+  const heroRef=useRef(null),paperRef=useRef(null),dialogRef=useRef(null),searchRef=useRef(null);
   const filtered=artwork.filter(item=>filter==='All'||item.style===filter||item.collection===filter);
   const visible=showAll?filtered:filtered.slice(0,12);
 
@@ -30,11 +30,7 @@ function App(){
     text('.headline span:last-child i','character.');
     text('.lede','I’m Abdulla Khan, a junior UI/UX designer in Bengaluru. I create clear interfaces, thoughtful digital products, and expressive graphics.');
     text('.ghost','KHAN');
-    doc.querySelectorAll('.card--about,.knob-float').forEach(node=>{node.hidden=true;node.style.display='none';});
-    text('.card--stove .label','UI/UX · Product design');
-    text('.card--stove h2','Made for people.');
-    const projectImage=doc.querySelector('.card--stove img');
-    if(projectImage){projectImage.src=projects[0].image;projectImage.alt='ARVEN — website design by Abdulla Khan';}
+    doc.querySelectorAll('.card,.knob-float').forEach(node=>{node.hidden=true;node.style.display='none';});
     text('.liquid-button--explore .lbl','Explore my work');
     const discover=doc.querySelector('.scroll');
     if(discover?.firstChild)discover.firstChild.textContent='Selected work';
@@ -66,6 +62,21 @@ function App(){
     root.addEventListener("load",personalize,true);personalize();
     return()=>root.removeEventListener("load",personalize,true);
   },[personalizeHero]);
+
+  useEffect(()=>{
+    const root=paperRef.current;
+    const label=()=>{
+      const frame=root.querySelector('iframe');
+      if(frame){frame.title='Abdulla Khan — interactive design profile';frame.parentElement.setAttribute('aria-label','Interactive design profile of Abdulla Khan');}
+    };
+    const scroll=event=>{
+      const frame=root.querySelector('iframe');
+      if(event.source!==frame?.contentWindow||event.data?.type!=='portfolio-paper-scroll'||typeof event.data.deltaY!=='number'||!Number.isFinite(event.data.deltaY))return;
+      window.scrollBy({top:Math.max(-1000,Math.min(1000,event.data.deltaY)),behavior:'instant'});
+    };
+    root.addEventListener('load',label,true);window.addEventListener('message',scroll);
+    return()=>{root.removeEventListener('load',label,true);window.removeEventListener('message',scroll);};
+  },[]);
 
   useEffect(()=>{
     const observer=new IntersectionObserver(([entry])=>setScrolled(!entry.isIntersecting),{threshold:.2});
@@ -135,11 +146,11 @@ function App(){
         {filtered.length>12&&<button className="more-link" onClick={()=>setShowAll(value=>!value)}>{showAll?'A little less':'Explore the full collection'} <span>{showAll?'−':`+ ${filtered.length-12}`}</span></button>}
       </section>
 
-      <section className="paper-section" aria-labelledby="paper-title"><div className="paper-intro section-wrap reveal"><span className="eyebrow">BETWEEN THE DIGITAL & THE TANGIBLE</span><h2 id="paper-title">Light has<br/>a <em>personality.</em></h2><p>A small interaction interlude.<br/>Move your pointer and watch the material catch the light.</p></div><div className="shader-frame paper-frame"><Suspense fallback={null}><ThreeDPaper variant="original"/></Suspense></div><p className="source-note">Interactive material study · Original ThreeUI source</p></section>
+      <section className="paper-section" aria-labelledby="paper-title"><div className="paper-intro section-wrap reveal"><span className="eyebrow">A LITTLE MORE ABOUT ME</span><h2 id="paper-title">Curiosity,<br/>in <em>motion.</em></h2><p>A junior designer, exploring how things look, feel, and work.<br/>Drag to turn my design profile. Scroll to keep exploring.</p></div><div className="shader-frame paper-frame" ref={paperRef}><Suspense fallback={null}><ThreeDPaper variant="original"/></Suspense></div><p className="source-note">Abdulla Khan · UI/UX, Product & Graphic Design</p></section>
 
       <section className="about-section section-wrap" id="about" aria-labelledby="about-title"><div className="section-meta reveal"><span>THE PERSON BEHIND THE PIXELS</span><span>BENGALURU, INDIA</span></div><div className="about-grid"><div className="reveal"><h2 id="about-title">A curious mind.<br/><em>A considered eye.</em></h2><p className="about-lede">I’m {PERSONAL_INFO.name}, a junior UI/UX designer based in Bengaluru. I am building my practice around clear interfaces and thoughtful visual design.</p><p>My work spans website concepts, mobile interfaces, dashboards, and graphic experiments—connecting thoughtful structure with a distinctive visual point of view.</p><p>At Indo-Sakura Software Japan, I work across user flows, wireframes, high-fidelity interfaces, and reusable design systems, taking ideas from the first conversation to developer handoff.</p><a className="underlined-link" href="/resume/Abdulla_Khan_Suri_Resume.pdf" download>Download my resume <span>↗</span></a></div><aside className="practice reveal"><span className="eyebrow">HOW I WORK</span><h3>Think clearly.<br/>Make thoughtfully.</h3><p>I start by understanding the flow, explore layouts and visual directions, then refine the details in Figma. My commerce background helps me connect design choices with business needs.</p><div className="tools-list">{SKILLS.designTools.map(tool=><span key={tool}>{tool}</span>)}</div><div className="career">{EXPERIENCE_EDUCATION.map((item,i)=><div key={i}><span>{item.period}</span><h4>{item.role}</h4><p>{item.company}</p></div>)}</div></aside></div></section>
 
-      <section className="contact-section section-wrap" id="contact" aria-labelledby="contact-title"><div className="contact-top reveal"><div><span className="eyebrow">A LITTLE CURIOSITY GOES A LONG WAY</span><h2 id="contact-title">Have something<br/><em>in mind?</em></h2><p>Let’s give it a thoughtful beginning.</p></div><div className="glass-study"><div className="shader-frame glass-frame"><Suspense fallback={null}><GlassAiButton/></Suspense></div><span>Tap the glass. A small interaction study.</span></div></div><a className="contact-email reveal" href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}<span aria-hidden="true">↗</span></a><div className="contact-links"><a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a><a href={PERSONAL_INFO.behance} target="_blank" rel="noreferrer">Behance ↗</a><a href="/resume/Abdulla_Khan_Suri_Resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a><button onClick={()=>setSearchOpen(true)}>Search this portfolio ↗</button></div></section>
+      <section className="contact-section section-wrap" id="contact" aria-labelledby="contact-title"><div className="contact-top reveal"><div><span className="eyebrow">A LITTLE CURIOSITY GOES A LONG WAY</span><h2 id="contact-title">Have something<br/><em>in mind?</em></h2><p>Let’s give it a thoughtful beginning.</p></div><a className="glass-contact" href={`mailto:${PERSONAL_INFO.email}`} aria-label="Say hello to Abdulla Khan by email"><span className="glass-contact-mark" aria-hidden="true">a.</span><span>Let’s connect<small>UI/UX · Product · Graphic design</small></span><span className="glass-contact-arrow" aria-hidden="true">↗</span></a></div><a className="contact-email reveal" href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}<span aria-hidden="true">↗</span></a><div className="contact-links"><a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a><a href={PERSONAL_INFO.behance} target="_blank" rel="noreferrer">Behance ↗</a><a href="/resume/Abdulla_Khan_Suri_Resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a><button onClick={()=>setSearchOpen(true)}>Search this portfolio ↗</button></div></section>
     </main>
     <footer className="site-footer"><span>© {new Date().getFullYear()} Abdulla Khan</span><span>UI/UX · Product · Graphic Design</span><a href="#hero" onClick={e=>{e.preventDefault();go('hero');}}>Back to the living world ↑</a></footer>
 

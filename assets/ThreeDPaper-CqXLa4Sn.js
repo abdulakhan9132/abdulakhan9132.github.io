@@ -1,4 +1,4 @@
-import{n as e,r as t,t as n}from"./index-Do7b60qs.js";var r=t(e(),1),i=`<meta charset="utf-8">
+import{n as e,r as t,t as n}from"./index-DOC5I1Rz.js";var r=t(e(),1),i=`<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>3D Paper</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0d'/%3E%3Ccircle cx='13' cy='19' r='6' fill='%23fff'/%3E%3Ccircle cx='25' cy='23' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -9,7 +9,7 @@ import{n as e,r as t,t as n}from"./index-Do7b60qs.js";var r=t(e(),1),i=`<meta ch
 :root{ --bg:#08080a; --ink:#f2f2f0; --dim:rgba(242,242,240,.38); }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;background:var(--bg);overflow:hidden;
-  touch-action:none;overscroll-behavior:none}
+  touch-action:pan-y;overscroll-behavior:auto}
 body{
   color:var(--ink);
   font-family:"Inter",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
@@ -47,7 +47,7 @@ body{
 
 </style>
 
-<div id="bg"><h1>NOCTURNE</h1></div>
+<div id="bg"><h1>ABDULLA</h1></div>
 
 <div id="dof"></div>
 <canvas id="gl"></canvas>
@@ -128,36 +128,36 @@ function drawGlass(ctx){
 
   const M=74;
   ctx.fillStyle='#ffffff'; ctx.font='700 104px "Inter Tight", Inter, sans-serif';
-  ctx.fillText('o.', M, 190);
+  ctx.fillText('a.', M, 190);
 
   ctx.font='500 106px "Inter Tight", Inter, sans-serif';
   ctx.fillStyle='rgba(255,255,255,.52)';
-  ctx.fillText('Studio of the Week.', M, 392);
-  ctx.fillText('Feb 14, 2026',        M, 518);
+  ctx.fillText('Junior UI/UX', M, 392);
+  ctx.fillText('Designer & maker.',        M, 518);
   ctx.font='600 110px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
-  ctx.fillText('Nocturne Studio.', M, 664);
+  ctx.fillText('Abdulla Khan', M, 664);
 
   ctx.font='600 34px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.90)';
-  ['By Nocturne Studio','Ilya Marchetti','Dara Okonkwo'].forEach((s,i)=>
+  ['Bengaluru, India','UI/UX & Product Design','Graphic Design'].forEach((s,i)=>
     ctx.fillText(s, M+4, 752+i*45));
 
   const px=592, py=1158;
   ctx.font='700 24px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.92)';
-  ctx.fillText('2026 Official Certificate.', px, py);
+  ctx.fillText('A little about my practice.', px, py);
   ctx.font='500 22px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.68)';
-  const endY = wrapL(ctx,'The orbit jury is proud to declare this website Studio of the Week in recognition of the great talent and effort invested in its creation.',px,py+36,296,28);
-  [0,1,2].forEach(i=> signature(ctx, px+6+i*100, endY+24, 0.86, i*5+3, 'rgba(255,255,255,.62)'));
+  const endY = wrapL(ctx,'I explore clear interfaces, thoughtful digital products, and expressive graphics. Based in Bengaluru, I work with Figma, Photoshop, and Illustrator.',px,py+36,296,28);
+  ctx.fillText('Design with character.', px, endY+42);
 
   ctx.save(); ctx.translate(1200-M-24, 1236); ctx.rotate(Math.PI/2);
   ctx.font='500 23px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.62)';
-  ctx.fillText('—', 0, 0); ctx.fillText('SOTW', 48, 0);
+  ctx.fillText('—', 0, 0); ctx.fillText('DESIGN', 48, 0);
   ctx.restore();
 
   ctx.font='700 34px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
-  ctx.fillText('orbit.', M, 1516);
-  const w = ctx.measureText('orbit.').width;
+  ctx.fillText('abdulla.', M, 1516);
+  const w = ctx.measureText('abdulla.').width;
   ctx.font='500 34px "Inter Tight", Inter, sans-serif';
-  ctx.fillStyle='rgba(255,255,255,.62)'; ctx.fillText(' winners', M+w, 1516);
+  ctx.fillStyle='rgba(255,255,255,.62)'; ctx.fillText(' design', M+w, 1516);
 }
 
 function makeCertTexture(){
@@ -546,7 +546,14 @@ window.__sheet = {group, mat, uni, renderer, scene, camera, mesh,
   spin:(y)=>{ dragYaw=y; release=1e9; }};
 })();
 <\/script>
-`,a=`<meta charset="utf-8">
+<script>
+    const sendScroll=deltaY=>parent.postMessage({type:'portfolio-paper-scroll',deltaY},'*');
+    window.addEventListener('wheel',event=>{event.preventDefault();sendScroll(event.deltaY*(event.deltaMode===1?20:event.deltaMode===2?innerHeight:1));},{passive:false});
+    let lastTouch=null;
+    window.addEventListener('touchstart',event=>{const t=event.touches[0];lastTouch=t?{x:t.clientX,y:t.clientY}:null;},{passive:true});
+    window.addEventListener('touchmove',event=>{const t=event.touches[0];if(!t||!lastTouch)return;const dx=lastTouch.x-t.clientX,dy=lastTouch.y-t.clientY;lastTouch={x:t.clientX,y:t.clientY};if(Math.abs(dy)>Math.abs(dx)){event.preventDefault();sendScroll(dy);}},{passive:false});
+    window.addEventListener('touchend',()=>{lastTouch=null;},{passive:true});
+  <\/script>`,a=`<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>3D Paper — Certificate</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0d'/%3E%3Ccircle cx='13' cy='19' r='6' fill='%23fff'/%3E%3Ccircle cx='25' cy='23' r='2.6' fill='%23fff'/%3E%3C/svg%3E">

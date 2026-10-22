@@ -1,9 +1,19 @@
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
 import {fileURLToPath} from 'node:url';
+import {readFileSync} from 'node:fs';
+import {personalizePaper} from './src/personalize-paper.js';
+import {PERSONAL_INFO} from './data.js';
 
 export default defineConfig({
-  plugins:[react()],
+  plugins:[{
+    name:'portfolio-paper-content',enforce:'pre',
+    load(id){
+      if(id.replaceAll('\\','/').endsWith('/3d-paper/sources/3d-paper.html?raw')){
+        return `export default ${JSON.stringify(personalizePaper(readFileSync(id.split('?')[0],'utf8'),PERSONAL_INFO))}`;
+      }
+    }
+  },react()],
   resolve:{alias:[
     {find:/^@designcodeio\/threeui$/,replacement:fileURLToPath(new URL('./src/threeui-entry.js',import.meta.url))},
     {find:'@designcodeio/threeui/style.css',replacement:fileURLToPath(new URL('./src/shaders/threeui.css',import.meta.url))}
