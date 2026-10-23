@@ -14,6 +14,8 @@ npm run preview
 
 Preview: http://127.0.0.1:5174/. Deploy the contents of dist to the existing abdulakhan9132.github.io repository.
 
+Layouts target tablets (768px and wider) and laptops. Phones use the tablet viewport scaled to fit, with pinch-to-zoom available. Narrow desktop windows retain the tablet layout and can scroll horizontally rather than switching to a phone layout.
+
 - src/main.jsx: portfolio and native dialog interactions.
 - src/portfolio.css: responsive layout and reduced-motion behavior.
 - src/portfolio-assets.json: imported project and graphic catalog.

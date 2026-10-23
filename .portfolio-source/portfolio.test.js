@@ -3,8 +3,18 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {personalizePaper} from './src/personalize-paper.js';
+import {runInNewContext} from 'node:vm';
 
 const assets=JSON.parse(readFileSync(new URL('./src/portfolio-assets.json',import.meta.url)));
+test('phones use the tablet viewport while tablets and laptops retain their native viewport',()=>{
+  const html=readFileSync(new URL('./index.html',import.meta.url),'utf8');
+  const script=html.match(/<script id="layout-viewport">([\s\S]*?)<\/script>/)[1];
+  for(const width of [320,390,767,768,1024,1440]){
+    const viewport={content:'width=768'};
+    runInNewContext(script,{screen:{width},document:{querySelector:()=>viewport}});
+    assert.equal(viewport.content,width<768?'width=768':'width=device-width, initial-scale=1.0');
+  }
+});
 test('paper uses the designer profile and relays vertical scrolling without award claims',()=>{
   const source=readFileSync(new URL('./src/shaders/3d-paper/sources/3d-paper.html',import.meta.url),'utf8');
   const result=personalizePaper(source);
