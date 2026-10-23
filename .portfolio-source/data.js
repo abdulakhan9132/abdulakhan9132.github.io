@@ -381,10 +381,7 @@ export const SKILLS = {
     "Adobe XD",
     "Photoshop",
     "Illustrator",
-    "Affinity",
-    "CorelDRAW",
-    "Canva",
-    "Rive"
+    "Affinity"
   ],
   "capabilities": [
     "Product Design",
@@ -397,5 +394,14 @@ export const SKILLS = {
     "Responsive Web Design",
     "Developer Handoff",
     "Information Architecture"
+  ],
+  "technical": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "NestJS",
+    "GitHub"
   ]
 };

@@ -4,8 +4,20 @@ import {readFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {personalizePaper} from './src/personalize-paper.js';
 import {runInNewContext} from 'node:vm';
+import {SKILLS} from './data.js';
 
 const assets=JSON.parse(readFileSync(new URL('./src/portfolio-assets.json',import.meta.url)));
+test('each listed design and development tool has a local software logo',()=>{
+  const icons=JSON.parse(readFileSync(new URL('./src/tool-icons.json',import.meta.url)));
+  const tools=[...SKILLS.designTools,...SKILLS.technical];
+  assert.equal(tools.length,13);
+  for(const name of ['CorelDRAW','Canva','Rive'])assert.ok(!tools.includes(name));
+  for(const name of ['HTML','CSS','JavaScript','TypeScript','React','NestJS','GitHub'])assert.ok(tools.includes(name));
+  for(const name of tools){
+    assert.ok(icons[name],name);
+    assert.match(readFileSync(new URL('./public'+icons[name],import.meta.url),'utf8'),/<svg\b/);
+  }
+});
 test('phones use the tablet viewport while tablets and laptops retain their native viewport',()=>{
   const html=readFileSync(new URL('./index.html',import.meta.url),'utf8');
   const script=html.match(/<script id="layout-viewport">([\s\S]*?)<\/script>/)[1];

@@ -1,0 +1,15 @@
+{
+  "Figma": "/tools/figma.svg",
+  "Framer": "/tools/framer.svg",
+  "Adobe XD": "/tools/adobe-xd.svg",
+  "Photoshop": "/tools/photoshop.svg",
+  "Illustrator": "/tools/illustrator.svg",
+  "Affinity": "/tools/affinity.svg",
+  "HTML": "/tools/html.svg",
+  "CSS": "/tools/css.svg",
+  "JavaScript": "/tools/javascript.svg",
+  "TypeScript": "/tools/typescript.svg",
+  "React": "/tools/react.svg",
+  "NestJS": "/tools/nestjs.svg",
+  "GitHub": "/tools/github.svg"
+}
