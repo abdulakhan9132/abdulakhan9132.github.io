@@ -1,4 +1,4 @@
-import{n as e,r as t,t as n}from"./index-D-IkeO1H.js";var r=t(e(),1),i=`<meta charset="utf-8">
+import{n as e,r as t,t as n}from"./index-82_Aik0B.js";var r=t(e(),1),i=`<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>3D Paper</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0d'/%3E%3Ccircle cx='13' cy='19' r='6' fill='%23fff'/%3E%3Ccircle cx='25' cy='23' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
