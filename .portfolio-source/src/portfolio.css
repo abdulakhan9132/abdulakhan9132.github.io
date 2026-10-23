@@ -33,5 +33,5 @@
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.site-nav{background:#dfe5df}}
 @media(prefers-reduced-transparency:reduce){.site-nav{background:#dfe5df;-webkit-backdrop-filter:none;backdrop-filter:none}}
 
-.tool-item{display:flex;flex-direction:column;align-items:center;gap:12px;margin:0;min-width:0;text-align:center}.tool-item img{width:36px;height:36px;object-fit:contain}.tool-item figcaption{font-size:10px;line-height:1.5;color:#51604c;overflow-wrap:anywhere}
+.tool-item{display:flex;flex-direction:column;align-items:center;gap:12px;margin:0;min-width:0;text-align:center}.tool-item img{width:36px;height:36px;object-fit:contain;transition:transform .25s var(--ease)}@media(hover:hover) and (pointer:fine){.tool-item:hover img{transform:scale(1.18)}}@media(prefers-reduced-motion:reduce){.tool-item:hover img{transform:none}}.tool-item figcaption{font-size:10px;line-height:1.5;color:#51604c;overflow-wrap:anywhere}
 .contact-section .eyebrow{color:#f5f6f299}.contact-section .contact-links{color:#f5f6f2c7}.contact-section .contact-links a:hover{color:#fff}
