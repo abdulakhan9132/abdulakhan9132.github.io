@@ -26,7 +26,6 @@ function App(){
   const [searchOpen,setSearchOpen]=useState(false);
   const [query,setQuery]=useState('');
   const [paperVisible,setPaperVisible]=useState(false);
-  const [toolsPaused,setToolsPaused]=useState(false);
   const heroRef=useRef(null),paperRef=useRef(null),dialogRef=useRef(null),searchRef=useRef(null);
   const filtered=artwork.filter(item=>filter==='All'||item.style===filter||item.collection===filter);
   const visible=showAll?filtered:filtered.slice(0,12);
@@ -193,8 +192,8 @@ function App(){
           </aside>
         </div>
         <section className="about-tools reveal" aria-labelledby="tools-title">
-          <div className="tools-heading"><h3 id="tools-title">Tools &amp; Skills</h3><button className="tools-motion-toggle" type="button" onClick={()=>setToolsPaused(value=>!value)}>{toolsPaused?'Resume motion':'Pause motion'}</button></div>
-          <div className={`tools-marquee${toolsPaused?' is-paused':''}`} role="group" aria-label="Design and development tools">
+          <div className="tools-heading"><h3 id="tools-title">Tools &amp; Skills</h3></div>
+          <div className="tools-marquee" role="group" aria-label="Design and development tools">
             <div className="tools-list">{[false,true].map(copy=><div className="tools-group" key={String(copy)} aria-hidden={copy||undefined}>{tools.map(tool=><figure className="tool-item" key={tool}><img src={toolIcons[tool]} width="56" height="56" alt="" loading="lazy"/><figcaption>{tool}</figcaption></figure>)}</div>)}</div>
           </div>
         </section>

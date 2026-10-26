@@ -75,9 +75,7 @@
 .about-tools .tool-item{flex:0 0 120px;gap:16px}
 .about-tools .tool-item img{width:56px;height:56px}
 .about-tools .tool-item figcaption{font-size:16px;font-weight:400;color:var(--ink)}
-.tools-motion-toggle{min-height:44px;padding:10px 0;border-bottom:1px solid #2f472d6b;font-size:12px;color:var(--muted)}
-.tools-marquee.is-paused .tools-list{animation-play-state:paused}
 @media(hover:hover) and (pointer:fine){.tools-marquee:hover .tools-list{animation-play-state:paused}}
 @keyframes tools-scroll{to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.about-tools .tools-list{width:100%;animation:none;transform:none;will-change:auto}.tools-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:32px 24px;width:100%;padding-right:0}.tools-group[aria-hidden="true"],.tools-motion-toggle{display:none}}
+@media(prefers-reduced-motion:reduce){.about-tools .tools-list{width:100%;animation:none;transform:none;will-change:auto}.tools-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:32px 24px;width:100%;padding-right:0}.tools-group[aria-hidden="true"]{display:none}}
 @media(max-width:900px){.about-section .about-grid{grid-template-columns:minmax(0,1fr);gap:48px}.about-section .about-grid h2{margin-bottom:32px}.about-section .about-grid p{max-width:none}.about-section .practice{padding-top:0}.about-section .creative-principle{padding-block:26px}.about-tools{margin-top:56px}}
