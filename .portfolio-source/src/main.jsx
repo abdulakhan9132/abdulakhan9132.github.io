@@ -18,6 +18,7 @@ function App(){
   const [scrolled,setScrolled]=useState(false);
   const [searchOpen,setSearchOpen]=useState(false);
   const [query,setQuery]=useState('');
+  const [paperVisible,setPaperVisible]=useState(false);
   const heroRef=useRef(null),paperRef=useRef(null),dialogRef=useRef(null),searchRef=useRef(null);
   const filtered=artwork.filter(item=>filter==='All'||item.style===filter||item.collection===filter);
   const visible=showAll?filtered:filtered.slice(0,12);
@@ -55,6 +56,7 @@ function App(){
       if(target){event.preventDefault();go(target.dataset.portfolioTarget);}
     });
     frame.style.visibility='visible';
+    document.getElementById('instant-intro')?.remove();
   },[]);
 
   useEffect(()=>{
@@ -63,6 +65,15 @@ function App(){
     root.addEventListener("load",personalize,true);personalize();
     return()=>root.removeEventListener("load",personalize,true);
   },[personalizeHero]);
+
+  useEffect(()=>{
+    const root=paperRef.current;
+    const observer=new IntersectionObserver(([entry])=>{
+      if(entry.isIntersecting){setPaperVisible(true);observer.disconnect();}
+    },{rootMargin:'500px'});
+    observer.observe(root);
+    return()=>observer.disconnect();
+  },[]);
 
   useEffect(()=>{
     const root=paperRef.current;
@@ -84,7 +95,7 @@ function App(){
     observer.observe(heroRef.current);return()=>observer.disconnect();
   },[]);
   useEffect(()=>{
-    const close=event=>{if((event.metaKey||event.ctrlKey)&&event.key.toLowerCase()==='k'){event.preventDefault();setSearchOpen(value=>!value);}};
+    const close=event=>{if((event.metaKey||event.ctrlKey)&&event.key.toLowerCase()==='k'){event.preventDefault();setSearchOpen(value=>!value);}else if(event.key==='Escape'&&searchRef.current?.open){event.preventDefault();setSearchOpen(false);}};
     window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close);
   },[]);
   useEffect(()=>{
@@ -146,7 +157,7 @@ function App(){
         {filtered.length>12&&<button className="more-link" onClick={()=>setShowAll(value=>!value)}>{showAll?'A little less':'Explore the full collection'} <span>{showAll?'−':`+ ${filtered.length-12}`}</span></button>}
       </section>
 
-      <section className="paper-section" aria-labelledby="paper-title"><div className="paper-intro section-wrap reveal"><span className="eyebrow">A LITTLE MORE ABOUT ME</span><h2 id="paper-title">Curiosity,<br/>in <em>motion.</em></h2><p>A UI/UX & Product Designer, exploring how things look, feel, and work.<br/>Drag to turn my design profile. Scroll to keep exploring.</p></div><div className="shader-frame paper-frame" ref={paperRef}><Suspense fallback={null}><ThreeDPaper variant="original"/></Suspense></div><p className="source-note">Abdulla Khan · UI/UX, Product & Graphic Design</p></section>
+      <section className="paper-section" aria-labelledby="paper-title"><div className="paper-intro section-wrap reveal"><span className="eyebrow">A LITTLE MORE ABOUT ME</span><h2 id="paper-title">Curiosity,<br/>in <em>motion.</em></h2><p>A UI/UX & Product Designer, exploring how things look, feel, and work.<br/>Drag to turn my design profile. Scroll to keep exploring.</p></div><div className="shader-frame paper-frame" ref={paperRef}>{paperVisible&&<Suspense fallback={null}><ThreeDPaper variant="original"/></Suspense>}</div><p className="source-note">Abdulla Khan · UI/UX, Product & Graphic Design</p></section>
 
       <section className="about-section section-wrap" id="about" aria-labelledby="about-title"><div className="section-meta reveal"><span>THE PERSON BEHIND THE PIXELS</span><span>BENGALURU, INDIA</span></div><div className="about-grid"><div className="reveal"><h2 id="about-title">A curious mind.<br/><em>A considered eye.</em></h2><p className="about-lede">I’m {PERSONAL_INFO.name}, a UI/UX & Product Designer based in Bengaluru. I am building my practice around clear interfaces and thoughtful visual design.</p><p>My work spans website concepts, mobile interfaces, dashboards, and graphic experiments—connecting thoughtful structure with a distinctive visual point of view.</p><p>At Indo-Sakura Software Japan, I work across user flows, wireframes, high-fidelity interfaces, and reusable design systems, taking ideas from the first conversation to developer handoff.</p><a className="underlined-link" href="/resume/Abdulla_Khan_Suri_Resume.pdf" download>Download my resume <span>↗</span></a></div><aside className="practice reveal"><span className="eyebrow">HOW I WORK</span><h3>Think clearly.<br/>Make thoughtfully.</h3><p>I start by understanding the flow, explore layouts and visual directions, then refine the details in Figma. My commerce background helps me connect design choices with business needs.</p><div className="tools-list" aria-label="Design and development tools">{[...SKILLS.designTools,...SKILLS.technical].map(tool=><figure className="tool-item" key={tool}><img src={toolIcons[tool]} width="36" height="36" alt="" loading="lazy"/><figcaption>{tool}</figcaption></figure>)}</div><div className="career">{EXPERIENCE_EDUCATION.map((item,i)=><div key={i}><span>{item.period}</span><h4>{item.role}</h4><p>{item.company}</p></div>)}</div></aside></div></section>
 

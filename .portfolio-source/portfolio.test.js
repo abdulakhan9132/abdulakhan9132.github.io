@@ -7,6 +7,16 @@ import {runInNewContext} from 'node:vm';
 import {SKILLS} from './data.js';
 
 const assets=JSON.parse(readFileSync(new URL('./src/portfolio-assets.json',import.meta.url)));
+test('the initial HTML contains useful content before JavaScript or 3D loads',()=>{
+  const html=readFileSync(new URL('./index.html',import.meta.url),'utf8');
+  const intro=html.match(/<section id="instant-intro"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(intro,'introduction is delivered in the initial HTML');
+  assert.match(intro,/<h1>Design with/);
+  assert.match(intro,/UI\/UX &amp; Product Designer/);
+  assert.match(intro,/href="mailto:abdullakhan9132@gmail.com"/);
+  assert.match(intro,/href="#works"/);
+  assert.ok(!/<(?:img|iframe|script)\b/.test(intro),'first content needs no additional downloads');
+});
 test('each listed design and development tool has a local software logo',()=>{
   const icons=JSON.parse(readFileSync(new URL('./src/tool-icons.json',import.meta.url)));
   const tools=[...SKILLS.designTools,...SKILLS.technical];

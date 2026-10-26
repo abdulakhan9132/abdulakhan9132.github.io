@@ -6,7 +6,15 @@ import {personalizePaper} from './src/personalize-paper.js';
 
 export default defineConfig({
   plugins:[{
-    name:'portfolio-paper-content',enforce:'pre',
+    name:'portfolio-content',enforce:'pre',
+    transformIndexHtml:{order:'post',handler(html,context){
+      if(!context.bundle)return html;
+      // Inline the small stylesheet so the introduction needs no extra network round trip.
+      return html.replace(/<link rel="stylesheet" crossorigin href="\/([^"]+)">/g,(tag,path)=>{
+        const css=context.bundle[path];
+        return css?.type==='asset'?`<style>${css.source}</style>`:tag;
+      });
+    }},
     load(id){
       if(id.replaceAll('\\','/').endsWith('/3d-paper/sources/3d-paper.html?raw')){
         return `export default ${JSON.stringify(personalizePaper(readFileSync(id.split('?')[0],'utf8')))}`;
