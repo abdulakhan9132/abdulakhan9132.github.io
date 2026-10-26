@@ -191,7 +191,7 @@ function App(){
           </aside>
         </div>
         <section className="about-tools reveal" aria-labelledby="tools-title">
-          <div className="tools-heading"><h3 id="tools-title">Tools &amp; Skills</h3><a className="underlined-link" href="/resume/Abdulla_Khan_Suri_Resume.pdf" download>Download my resume <span>↗</span></a></div>
+          <div className="tools-heading"><h3 id="tools-title">Tools &amp; Skills</h3></div>
           <div className="tools-list" aria-label="Design and development tools">{[...SKILLS.designTools,...SKILLS.technical].map(tool=><figure className="tool-item" key={tool}><img src={toolIcons[tool]} width="36" height="36" alt="" loading="lazy"/><figcaption>{tool}</figcaption></figure>)}</div>
         </section>
       </section>
