@@ -2,12 +2,18 @@ import React, {Suspense, useCallback, useEffect, useRef, useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {SylvaHero, ThreeDPaper} from '@designcodeio/threeui';
 import '@designcodeio/threeui/style.css';
-import {PERSONAL_INFO, EXPERIENCE_EDUCATION, SKILLS} from '../data.js';
+import {PERSONAL_INFO, SKILLS} from '../data.js';
 import assets from './portfolio-assets.json';
 import toolIcons from './tool-icons.json';
 import './portfolio.css';
 
 const {projects,artwork}=assets;
+const principles=[
+  ['Stay Curious','Never stop asking why.'],
+  ['Think Differently','Look beyond the obvious.'],
+  ['Keep Exploring','Every idea opens another door.'],
+  ['Make It Matter','Create with meaning and intention.']
+];
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 function go(id){document.getElementById(id)?.scrollIntoView({behavior:reduced()?'instant':'smooth',block:'start'});}
 
@@ -120,6 +126,7 @@ function App(){
     gsap.registerPlugin(ScrollTrigger);
     const ctx=gsap.context(()=>{
       gsap.utils.toArray('.reveal').forEach(element=>gsap.from(element,{y:45,opacity:0,duration:1.05,ease:'power3.out',scrollTrigger:{trigger:element,start:'top 92%',once:true}}));
+      gsap.from('.creative-principle',{y:18,opacity:0,duration:.65,stagger:.1,ease:'power3.out',clearProps:'transform,opacity',scrollTrigger:{trigger:'.creative-principles',start:'top 90%',once:true}});
       gsap.utils.toArray('.project-visual').forEach(element=>gsap.fromTo(element.querySelector('img'),{yPercent:3,scale:1.04},{yPercent:-3,scale:1,ease:'none',scrollTrigger:{trigger:element,start:'top bottom',end:'bottom top',scrub:1.3}}));
     });return()=>ctx.revert();
   },[]);
@@ -164,7 +171,30 @@ function App(){
 
       <section className="paper-section" aria-labelledby="paper-title"><div className="paper-intro section-wrap reveal"><span className="eyebrow">A LITTLE MORE ABOUT ME</span><h2 id="paper-title">Curiosity,<br/>in <em>motion.</em></h2><p>A UI/UX & Product Designer, exploring how things look, feel, and work.<br/>Drag to turn my design profile. Scroll to keep exploring.</p></div><div className="shader-frame paper-frame" ref={paperRef}>{paperVisible&&<Suspense fallback={null}><ThreeDPaper variant="original"/></Suspense>}</div><p className="source-note">Abdulla Khan · UI/UX, Product & Graphic Design</p></section>
 
-      <section className="about-section section-wrap" id="about" aria-labelledby="about-title"><div className="section-meta reveal"><span>THE PERSON BEHIND THE PIXELS</span><span>BENGALURU, INDIA</span></div><div className="about-grid"><div className="reveal"><h2 id="about-title">A curious mind.<br/><em>A considered eye.</em></h2><p className="about-lede">I’m {PERSONAL_INFO.name}, a UI/UX & Product Designer based in Bengaluru. I am building my practice around clear interfaces and thoughtful visual design.</p><p>My work spans website concepts, mobile interfaces, dashboards, and graphic experiments—connecting thoughtful structure with a distinctive visual point of view.</p><p>At Indo-Sakura Software Japan, I work across user flows, wireframes, high-fidelity interfaces, and reusable design systems, taking ideas from the first conversation to developer handoff.</p><a className="underlined-link" href="/resume/Abdulla_Khan_Suri_Resume.pdf" download>Download my resume <span>↗</span></a></div><aside className="practice reveal"><span className="eyebrow">HOW I WORK</span><h3>Think clearly.<br/>Make thoughtfully.</h3><p>I start by understanding the flow, explore layouts and visual directions, then refine the details in Figma. My commerce background helps me connect design choices with business needs.</p><div className="tools-list" aria-label="Design and development tools">{[...SKILLS.designTools,...SKILLS.technical].map(tool=><figure className="tool-item" key={tool}><img src={toolIcons[tool]} width="36" height="36" alt="" loading="lazy"/><figcaption>{tool}</figcaption></figure>)}</div><div className="career">{EXPERIENCE_EDUCATION.map((item,i)=><div key={i}><span>{item.period}</span><h4>{item.role}</h4><p>{item.company}</p></div>)}</div></aside></div></section>
+      <section className="about-section section-wrap" id="about" aria-labelledby="about-title">
+        <div className="section-meta reveal"><span>THE PERSON BEHIND THE PIXELS</span><span>BENGALURU, INDIA</span></div>
+        <div className="about-grid">
+          <div className="reveal">
+            <h2 id="about-title">Curious by nature.<br/><em>Creative by instinct.</em></h2>
+            <p className="about-lede">I'm Abdulla. A curious mind drawn to interesting ideas, unexpected details, and the beauty hidden in everyday things.</p>
+            <p>I believe creativity isn't just about making something look good. It's about seeing what others might overlook, asking better questions, and finding new ways to make ordinary things extraordinary.</p>
+            <p>I'm constantly exploring, experimenting, and learning. Some ideas start with a simple question. Others begin with a random thought. The exciting part is discovering where they lead.</p>
+            <p className="about-signature">Always learning. Always evolving. Never done creating.</p>
+          </div>
+          <aside className="practice reveal" aria-labelledby="philosophy-title">
+            <span className="eyebrow">HOW I THINK</span>
+            <h3 id="philosophy-title">Observe deeply.<br/><em>Create differently.</em></h3>
+            <p>I don't believe the first idea is always the best one.</p>
+            <p>I like to question the obvious, explore the unexpected, and find simplicity within complexity. For me, every idea is an opportunity to discover something new.</p>
+            <p>Curiosity fuels the process. Creativity gives it direction.</p>
+            <ol className="creative-principles" aria-label="Creative principles">{principles.map(([title,description],index)=><li className="creative-principle" key={title}><span className="principle-number" aria-hidden="true">0{index+1}</span><h4>{title}</h4><p>{description}</p></li>)}</ol>
+          </aside>
+        </div>
+        <section className="about-tools reveal" aria-labelledby="tools-title">
+          <div className="tools-heading"><h3 id="tools-title">Tools &amp; Skills</h3><a className="underlined-link" href="/resume/Abdulla_Khan_Suri_Resume.pdf" download>Download my resume <span>↗</span></a></div>
+          <div className="tools-list" aria-label="Design and development tools">{[...SKILLS.designTools,...SKILLS.technical].map(tool=><figure className="tool-item" key={tool}><img src={toolIcons[tool]} width="36" height="36" alt="" loading="lazy"/><figcaption>{tool}</figcaption></figure>)}</div>
+        </section>
+      </section>
 
       <section className="contact-section section-wrap" id="contact" aria-labelledby="contact-title"><div className="contact-top reveal"><div><span className="eyebrow">A LITTLE CURIOSITY GOES A LONG WAY</span><h2 id="contact-title">Have something<br/><em>in mind?</em></h2><p>Let’s give it a thoughtful beginning.</p></div><div className="glass-contact-stage"><a className="glass-contact" href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(PERSONAL_INFO.email)}`} target="_blank" rel="noopener noreferrer" aria-label="Let’s connect — compose an email in Gmail"><span className="glass-contact-label">Let’s connect</span><span className="glass-contact-arrow" aria-hidden="true">↗</span></a></div></div>
         {/* Sliding-cover interaction adapted from Uiverse.io by dovatgabriel. */}
