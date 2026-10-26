@@ -56,7 +56,12 @@ function App(){
       if(target){event.preventDefault();go(target.dataset.portfolioTarget);}
     });
     frame.style.visibility='visible';
-    document.getElementById('instant-intro')?.remove();
+    const intro=document.getElementById('instant-intro');
+    if(intro){
+      intro.inert=true;
+      intro.style.pointerEvents='none';
+      intro.animate({opacity:[1,0]},{duration:reduced()?0:350,easing:'ease-out'}).onfinish=()=>intro.remove();
+    }
   },[]);
 
   useEffect(()=>{
