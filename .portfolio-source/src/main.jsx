@@ -8,6 +8,7 @@ import toolIcons from './tool-icons.json';
 import './portfolio.css';
 
 const {projects,artwork}=assets;
+const tools=[...SKILLS.designTools,...SKILLS.technical];
 const principles=[
   ['Stay Curious','Never stop asking why.'],
   ['Think Differently','Look beyond the obvious.'],
@@ -25,6 +26,7 @@ function App(){
   const [searchOpen,setSearchOpen]=useState(false);
   const [query,setQuery]=useState('');
   const [paperVisible,setPaperVisible]=useState(false);
+  const [toolsPaused,setToolsPaused]=useState(false);
   const heroRef=useRef(null),paperRef=useRef(null),dialogRef=useRef(null),searchRef=useRef(null);
   const filtered=artwork.filter(item=>filter==='All'||item.style===filter||item.collection===filter);
   const visible=showAll?filtered:filtered.slice(0,12);
@@ -172,7 +174,7 @@ function App(){
       <section className="paper-section" aria-labelledby="paper-title"><div className="paper-intro section-wrap reveal"><span className="eyebrow">A LITTLE MORE ABOUT ME</span><h2 id="paper-title">Curiosity,<br/>in <em>motion.</em></h2><p>A UI/UX & Product Designer, exploring how things look, feel, and work.<br/>Drag to turn my design profile. Scroll to keep exploring.</p></div><div className="shader-frame paper-frame" ref={paperRef}>{paperVisible&&<Suspense fallback={null}><ThreeDPaper variant="original"/></Suspense>}</div><p className="source-note">Abdulla Khan · UI/UX, Product & Graphic Design</p></section>
 
       <section className="about-section section-wrap" id="about" aria-labelledby="about-title">
-        <div className="section-meta reveal"><span>THE PERSON BEHIND THE PIXELS</span><span>BENGALURU, INDIA</span></div>
+        <div className="section-meta reveal"><span>THE PERSON BEHIND THE PIXELS</span></div>
         <div className="about-grid">
           <div className="reveal">
             <h2 id="about-title">Curious by nature.<br/><em>Creative by instinct.</em></h2>
@@ -191,8 +193,10 @@ function App(){
           </aside>
         </div>
         <section className="about-tools reveal" aria-labelledby="tools-title">
-          <div className="tools-heading"><h3 id="tools-title">Tools &amp; Skills</h3></div>
-          <div className="tools-list" aria-label="Design and development tools">{[...SKILLS.designTools,...SKILLS.technical].map(tool=><figure className="tool-item" key={tool}><img src={toolIcons[tool]} width="36" height="36" alt="" loading="lazy"/><figcaption>{tool}</figcaption></figure>)}</div>
+          <div className="tools-heading"><h3 id="tools-title">Tools &amp; Skills</h3><button className="tools-motion-toggle" type="button" onClick={()=>setToolsPaused(value=>!value)}>{toolsPaused?'Resume motion':'Pause motion'}</button></div>
+          <div className={`tools-marquee${toolsPaused?' is-paused':''}`} role="group" aria-label="Design and development tools">
+            <div className="tools-list">{[false,true].map(copy=><div className="tools-group" key={String(copy)} aria-hidden={copy||undefined}>{tools.map(tool=><figure className="tool-item" key={tool}><img src={toolIcons[tool]} width="56" height="56" alt="" loading="lazy"/><figcaption>{tool}</figcaption></figure>)}</div>)}</div>
+          </div>
         </section>
       </section>
 
