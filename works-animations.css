@@ -1,0 +1,40 @@
+/* Selected Work animations */
+/* Tweak: duration .9s | stagger 120ms | easing cubic-bezier(.22,1,.36,1) | lift 8px */
+#works{--wa-duration:900ms;--wa-stagger:120ms;--wa-ease:cubic-bezier(.22,1,.36,1);--wa-lift:8px;--wa-ink:#19261a}
+#works .wa-mask{display:inline-block;overflow:hidden;vertical-align:bottom}
+#works .wa-word{display:inline-block}
+#works .wa-heading-rule{height:1px;width:100%;background:currentColor;opacity:.22;transform-origin:left;transform:scaleX(1);margin-top:24px}
+#works .project-visual{isolation:isolate}
+#works .project-visual img{aspect-ratio:inherit;object-fit:cover}
+#works .wa-view-cursor{position:fixed;top:0;left:0;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;z-index:90;pointer-events:none;background:var(--wa-ink);color:#f0f1e9;font-size:12px;opacity:0;transform:translate3d(-100px,-100px,0) scale(.55);will-change:transform}
+@media(prefers-reduced-motion:no-preference){
+ #works.wa-ready .wa-word{transform:translateY(110%);transition:transform var(--wa-duration) var(--wa-ease);transition-delay:calc(var(--wa-i,0)*75ms)}
+ #works.wa-ready.wa-heading-seen .wa-word{transform:translateY(0)}
+ #works.wa-ready .wa-heading-rule{transform:scaleX(0);transition:transform var(--wa-duration) var(--wa-ease)}
+ #works.wa-ready.wa-heading-seen .wa-heading-rule{transform:scaleX(1)}
+ #works.wa-ready .project-row{opacity:0;transform:translate3d(0,40px,0);filter:blur(6px);transition:opacity var(--wa-duration) var(--wa-ease),transform var(--wa-duration) var(--wa-ease),filter var(--wa-duration) var(--wa-ease);transition-delay:calc(var(--wa-row,0)*var(--wa-stagger))}
+ #works.wa-ready .project-row.wa-seen{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+ #works.wa-ready .project-visual img{clip-path:inset(100% 0 0 0);scale:1.15;transition:clip-path 1050ms var(--wa-ease),scale 1250ms var(--wa-ease);transition-delay:100ms}
+ #works.wa-ready .project-row.wa-seen .project-visual img{clip-path:inset(0);scale:1}
+ #works.wa-ready .project-tags>span{opacity:0;transform:scale(.9) translateY(5px);transition:opacity 500ms var(--wa-ease),transform 500ms var(--wa-ease);transition-delay:calc(470ms + var(--wa-tag,0)*85ms)}
+ #works.wa-ready .project-row.wa-seen .project-tags>span{opacity:1;transform:none}
+ #works .project-number{transition:opacity 600ms var(--wa-ease);opacity:.6}
+ #works .project-row.wa-seen .project-number{opacity:1}
+ @media(hover:hover) and (pointer:fine){
+  #works .project-row{perspective:1100px}
+  #works .project-visual{transform:rotateX(var(--wa-rx,0deg)) rotateY(var(--wa-ry,0deg)) translateY(0);transition:transform 600ms var(--wa-ease),box-shadow 600ms var(--wa-ease)}
+  #works .project-row.wa-active .project-visual{transform:rotateX(var(--wa-rx,0deg)) rotateY(var(--wa-ry,0deg)) translateY(calc(-1 * var(--wa-lift)));box-shadow:0 25px 48px #19261a26}
+  #works .project-row.wa-active .project-visual img{scale:1.06}
+  #works .project-info h2 button{position:relative}
+  #works .project-info h2 button:after{content:"";position:absolute;bottom:-6px;left:0;right:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 550ms var(--wa-ease)}
+  #works .project-row.wa-active .project-info h2 button:after{transform:scaleX(1)}
+  #works .project-info h2 button>span{opacity:0;transform:translate(-8px,8px) rotate(0);transition:opacity .35s,transform .5s var(--wa-ease)}
+  #works .project-row.wa-active .project-info h2 button>span{opacity:1;transform:translate(0,0) rotate(45deg)}
+  #works .project-row:not(.wa-active){transition:opacity 500ms var(--wa-ease),filter 500ms var(--wa-ease),transform var(--wa-duration) var(--wa-ease)}
+  #works.wa-hovering .project-row.wa-seen:not(.wa-active){opacity:.5;filter:grayscale(.3)}
+  #works .project-visual{cursor:none}
+  #works .wa-view-cursor.wa-visible{opacity:1}
+ }
+ @media(max-width:767px){#works{--wa-stagger:45ms}#works .project-row{filter:none!important}#works .wa-view-cursor{display:none}}
+}
+@media(prefers-reduced-motion:reduce){#works .wa-word,#works .project-row,#works .project-visual img,#works .project-tags>span{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important;scale:1!important}#works .wa-view-cursor{display:none}}
